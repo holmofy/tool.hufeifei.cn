@@ -1,0 +1,24 @@
+{
+  "name": "tool.hufeifei.cn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npx lessc less/style.less dist/css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holmofy/tool.hufeifei.cn.git"
+  },
+  "author": "holmofy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/holmofy/tool.hufeifei.cn/issues"
+  },
+  "homepage": "https://github.com/holmofy/tool.hufeifei.cn#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "less": "^4.1.2"
+  }
+}
