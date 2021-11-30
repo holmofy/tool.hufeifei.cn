@@ -67,22 +67,22 @@
     </div>
   </script>
   <script id="apps" type="text/x-jsrender">
+    {{if category && apps}}
     <div class="box-wrapper normal">
-      {{if category && apps}}
         {{include tmpl="#app-box"/}}
         <h2>{{:category}}</h2>
-      {{/if}}
-      {{if name && icon}}
-        <div class="plain-app">
-          <a href="/{{:subpath}}">
-            <svg class="icon-svg" aria-hidden="true">
-              <use xlink:href="#{{:icon}}"></use>
-            </svg>
-          </a>
-        </div>
-        <h2>{{:name}}</h2>
-      {{/if}}
     </div>
+    {{/if}}
+    {{if name && icon}}
+      <div class="plain-app">
+        <a href="/{{:subpath}}">
+          <svg class="icon-svg" aria-hidden="true">
+            <use xlink:href="#{{:icon}}"></use>
+          </svg>
+        </a>
+      </div>
+      <h2>{{:name}}</h2>
+    {{/if}}
   </script>
   <script>
     $('#pane').html($.templates("#apps").render([{
