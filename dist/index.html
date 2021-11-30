@@ -74,6 +74,7 @@
     </div>
     {{/if}}
     {{if name && icon}}
+    <div class="plain-app-wrapper">
       <div class="plain-app">
         <a href="/{{:subpath}}">
           <svg class="icon-svg" aria-hidden="true">
@@ -82,6 +83,7 @@
         </a>
       </div>
       <h2>{{:name}}</h2>
+    </div>
     {{/if}}
   </script>
   <script>
