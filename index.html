@@ -25,6 +25,7 @@
     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-H58NSPXYPF"></script>
+  <script async src="//at.alicdn.com/t/font_2974747_cg9ivw7b2v.js"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -37,7 +38,6 @@
   <link rel="icon" sizes="192x192" href="favicon.jpg">
   <link rel="apple-touch-icon" href="favicon.jpg">
   <title>在线工具箱</title>
-  <link href="//at.alicdn.com/t/font_2974747_xxji5sjh8xi.css" rel="stylesheet">
   <style>
     /* css reset */
     body,
@@ -81,6 +81,14 @@
       text-decoration: none;
       color: #fff;
       vertical-align: middle;
+    }
+
+    .icon-svg {
+      width: 1em;
+      height: 1em;
+      vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
     }
 
     #container {
@@ -183,11 +191,11 @@
       display: none;
     }
 
-    .app-box .iconfont {
+    .app-box .icon-svg {
       font-size: 20px;
     }
 
-    .box-wrapper.active .iconfont {
+    .box-wrapper.active .icon-svg {
       font-size: 50px;
     }
 
@@ -225,7 +233,11 @@
       <ul class="app-box">
         {{for apps}}
         <li class="app">
-          <a href="/{{:subpath}}"><i class="iconfont {{:icon}}"></i></a>
+          <a href="/{{:subpath}}">
+            <svg class="icon-svg" aria-hidden="true">
+              <use xlink:href="#{{:icon}}"></use>
+            </svg>
+          </a>
           <h3>{{:name}}</h3>
         </li>
         {{/for}}
