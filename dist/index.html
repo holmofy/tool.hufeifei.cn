@@ -123,8 +123,8 @@
       subpath: "#",
       icon: "ic-theme"
     }]));
-    var ids = Array.from(Array(10).keys()).map(i => ({
-      id: i + 60
+    var ids = Array.from(Array(840).keys()).map(id => ({
+      id
     }));
     $('#theme-selector').html($.templates("#themes").render(ids));
     $(".box-wrapper").click(function () {
