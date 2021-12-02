@@ -133,7 +133,9 @@
       $(this).attr("active", !active)
     });
     $("#ic-theme").click(function () {
-      $("#theme-selector").css("bottom", "0");
+      var active = $("#theme-selector").attr("active") === 'true';
+      $("#theme-selector").toggleClass("active", !active);
+      $("#theme-selector").attr("active", !active)
     });
   </script>
 </body>
