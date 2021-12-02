@@ -186,9 +186,6 @@ a {
   border-radius: 20px;
   background-color: #ffffff40;
 }
-#theme-selector:hover::-webkit-scrollbar-track {
-  background-color: #ffffff10;
-}
 #theme-selector:hover::-webkit-scrollbar-thumb {
   background-color: #ffffffa0;
 }
