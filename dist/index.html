@@ -123,7 +123,9 @@
       subpath: "#",
       icon: "ic-theme"
     }]));
-    var ids = Array.from(Array(10).keys()).map(i=>({id:i+60}));
+    var ids = Array.from(Array(10).keys()).map(i => ({
+      id: i + 60
+    }));
     $('#theme-selector').html($.templates("#themes").render(ids));
     $(".box-wrapper").click(function () {
       var active = $(this).attr("active") === 'true';
@@ -131,7 +133,7 @@
       $(this).attr("active", !active)
     });
     $("#ic-theme").click(function () {
-      $("#theme-selector").css("display","block");
+      $("#theme-selector").css("bottom", "0");
     });
   </script>
 </body>
