@@ -155,12 +155,14 @@ a {
 }
 #theme-selector {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   position: absolute;
   bottom: -100vh;
   width: 100vw;
   height: 15vh;
   max-height: 310px;
-  overflow-x: scroll;
+  overflow-y: scroll;
   transition: bottom 1s cubic-bezier(0.21, 0.95, 0.2, 0.95);
 }
 #theme-selector.active {
