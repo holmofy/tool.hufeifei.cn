@@ -15,6 +15,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="viewport"
     content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <link rel="icon" sizes="192x192" href="icon.svg">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <title>在线工具箱</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"
     integrity="sha512-DUC8yqWf7ez3JD1jszxCWSVB0DMP78eOyBpMa5aJki1bIRARykviOuImIczkxlj1KhVSyS16w2FSQetkD4UU2w=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -35,10 +39,6 @@
     gtag('js', new Date());
     gtag('config', 'G-H58NSPXYPF');
   </script>
-  <link rel="icon" sizes="192x192" href="icon.svg">
-  <link rel="apple-touch-icon" href="icon.svg">
-  <link rel="stylesheet" href="css/style.css">
-  <title>在线工具箱</title>
 </head>
 
 <body>
@@ -49,13 +49,15 @@
       <span id="copyright">&copy; 2016 - 2018 </span>
       <a href="http://www.hufeifei.cn/resume.html" title="点我查看简历"> power by 胡飞飞 </a>
     </div>
+    <div id="theme-pop-window" style="display: none;">
+    </div>
   </div>
   <script id="app-box" type="text/x-jsrender">
     <div class="box-inner">
       <ul class="app-box">
         {{for apps}}
         <li class="app">
-          <a href="/{{:subpath}}">
+          <a id="{{:icon}}" href="/{{:subpath}}">
             <svg class="icon-svg" aria-hidden="true">
               <use xlink:href="#{{:icon}}"></use>
             </svg>
@@ -76,7 +78,7 @@
     {{if name && icon}}
     <div class="plain-app-wrapper">
       <div class="plain-app">
-        <a href="/{{:subpath}}">
+        <a id="{{:icon}}" href="/{{:subpath}}">
           <svg class="icon-svg" aria-hidden="true">
             <use xlink:href="#{{:icon}}"></use>
           </svg>
@@ -85,6 +87,9 @@
       <h2>{{:name}}</h2>
     </div>
     {{/if}}
+  </script>
+  <script id="themes" type="text/x-jsrender">
+    <img class="rounded" src="https://lipsum.app/id/{{:id}}/200x150" />
   </script>
   <script>
     $('#pane').html($.templates("#apps").render([{
@@ -110,10 +115,15 @@
       subpath: "#",
       icon: "ic-theme"
     }]));
+    var ids = Array.from(Array(10).keys()).map(i=>({id:i+60}));
+    $('#theme-pop-window').html($.templates("#themes").render(ids));
     $(".box-wrapper").click(function () {
       var active = $(this).attr("active") === 'true';
       $(this).toggleClass("active", !active).toggleClass("normal", active);
       $(this).attr("active", !active)
+    });
+    $("#ic-theme").click(function () {
+      $("#theme-pop-window").css("display","block");
     });
   </script>
 </body>
