@@ -166,6 +166,7 @@ a {
         flex-direction: column;
         align-items: center;
         flex-direction: column;
+
         .plain-app {
             width: 90px;
             height: 90px;
@@ -181,6 +182,41 @@ a {
     }
 }
 
+#theme-selector {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 15vh;
+    max-height: 310px;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-clip: content-box;
+        border: 5px solid transparent;
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        background-color: #ffffff40;
+    }
+
+    &:hover {
+        &::-webkit-scrollbar-track {
+            background-color: #ffffff10;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #ffffffa0;
+        }
+    }
+
+}
 
 #footer {
     font-size: 10px;
