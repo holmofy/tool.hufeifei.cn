@@ -29,7 +29,7 @@
     src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-H58NSPXYPF"></script>
-  <script async src="//at.alicdn.com/t/font_2974747_7hpqpgz9z77.js"></script>
+  <script async src="//at.alicdn.com/t/font_2974747_w9kep06r7j.js"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -51,12 +51,15 @@
     </div>
     <div id="theme-selector">
       <div class="header">
-        <div class="close"></div>
+        <svg class="icon-svg close" aria-hidden="true">
+          <use xlink:href="#ic-close"></use>
+        </svg>
       </div>
       <div id="theme-container">
       </div>
     </div>
   </div>
+  <img id="preload" src="" rel="external noreferrer nofollow noopener" referrerpolicy="no-referrer"></img>
   <script id="app-box" type="text/x-jsrender">
     <div class="box-inner">
       <ul class="app-box">
@@ -137,10 +140,25 @@
       $(this).toggleClass("active", !active).toggleClass("normal", active);
       $(this).attr("active", !active)
     });
-    $("#ic-theme").click(function () {
+
+    var toggleTheme = function () {
       var active = $("#theme-selector").attr("active") === 'true';
       $("#theme-selector").toggleClass("active", !active);
       $("#theme-selector").attr("active", !active);
+    };
+    $("#ic-theme").click(toggleTheme);
+    $("#theme-selector .close").click(toggleTheme);
+
+    $("#theme-container img.rounded").click(function () {
+      var url = $(this).addClass("loading").attr("src").replace("200x150", "1600x900");
+      $("#preload").on("load", {
+        url,
+        srcThis: this
+      }, function (event) {
+        $(event.data.srcThis).removeClass("loading");
+        $(document.body).css("background-image", "url(" + event.data.url + ")");
+      });
+      $("#preload").attr("src", url);
     });
   </script>
 </body>

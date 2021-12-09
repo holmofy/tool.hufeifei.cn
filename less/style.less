@@ -189,6 +189,7 @@ a {
     height: 30vh;
     max-height: 310px;
     min-height: 160px;
+    overflow-x: hidden;
     overflow-y: scroll;
     transition: bottom 1s cubic-bezier(0.21, 0.95, 0.2, 0.95);
     background: rgba(255, 255, 255, 0.25);
@@ -206,6 +207,14 @@ a {
         height: 10px;
         width: 100vw;
         background-image: linear-gradient(#0000009e, transparent);
+    }
+
+    .close {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        top: 0;
+        right: 10px;
     }
 
     &::-webkit-scrollbar {
@@ -240,13 +249,21 @@ a {
         width: 200px;
         height: 150px;
         border-radius: 8px;
-        margin: 0 10px 5px;
+        margin: 0 10px 10px;
 
         &:hover {
             box-shadow: 3px 3px 6px 3px rgba(0, 0, 0, 0.3);
         }
     }
 
+    img.loading::before {
+        content: ' ';
+    }
+
+}
+
+#preload {
+    display: hidden;
 }
 
 #footer {
