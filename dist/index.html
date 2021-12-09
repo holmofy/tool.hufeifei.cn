@@ -54,6 +54,7 @@
         <svg class="icon-svg close" aria-hidden="true">
           <use xlink:href="#ic-arrowdown"></use>
         </svg>
+        <div class="loading"></div>
       </div>
       <div id="theme-container">
       </div>
@@ -150,13 +151,13 @@
     $("#theme-selector .close").click(toggleTheme);
 
     $("#theme-container img.rounded").click(function () {
-      var url = $(this).addClass("loading").attr("src").replace("200x150", "1600x900");
+      $("#theme-selector .loading").removeClass("hidden");
+      var url = $(this).attr("src").replace("200x150", "1600x900");
       $("#preload").on("load", {
-        url,
-        srcThis: this
+        url
       }, function (event) {
-        $(event.data.srcThis).removeClass("loading");
         $(document.body).css("background-image", "url(" + event.data.url + ")");
+        $("#theme-selector .loading").addClass("hidden");
       });
       $("#preload").attr("src", url);
     });
