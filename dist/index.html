@@ -50,6 +50,11 @@
       <a href="http://www.hufeifei.cn/resume.html" title="点我查看简历"> power by 胡飞飞 </a>
     </div>
     <div id="theme-selector">
+      <div class="header">
+        <div class="close"></div>
+      </div>
+      <div id="theme-container">
+      </div>
     </div>
   </div>
   <script id="app-box" type="text/x-jsrender">
@@ -126,7 +131,7 @@
     var ids = Array.from(Array(840).keys()).map(id => ({
       id
     }));
-    $('#theme-selector').html($.templates("#themes").render(ids));
+    $('#theme-container').html($.templates("#themes").render(ids));
     $(".box-wrapper").click(function () {
       var active = $(this).attr("active") === 'true';
       $(this).toggleClass("active", !active).toggleClass("normal", active);

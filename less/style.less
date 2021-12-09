@@ -183,9 +183,6 @@ a {
 }
 
 #theme-selector {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
     position: absolute;
     bottom: -100vh;
     width: 100vw;
@@ -201,26 +198,14 @@ a {
     &.active {
         bottom: 0;
     }
-    
-    &:before {
-        content: '';
+
+    .header {
         display: block;
         position: sticky;
         top: 0;
         height: 10px;
         width: 100vw;
         background-image: linear-gradient(#0000009e, transparent);
-    }
-
-    .rounded {
-        width: 200px;
-        height: 150px;
-        border-radius: 8px;
-        margin: 0 10px 5px;
-
-        &:hover {
-            box-shadow: 3px 3px 6px 3px rgba(0, 0, 0, 0.3);
-        }
     }
 
     &::-webkit-scrollbar {
@@ -241,6 +226,24 @@ a {
     &:hover {
         &::-webkit-scrollbar-thumb {
             background-color: #ffffff90;
+        }
+    }
+
+}
+
+#theme-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .rounded {
+        width: 200px;
+        height: 150px;
+        border-radius: 8px;
+        margin: 0 10px 5px;
+
+        &:hover {
+            box-shadow: 3px 3px 6px 3px rgba(0, 0, 0, 0.3);
         }
     }
 
