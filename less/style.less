@@ -245,7 +245,17 @@ a {
     }
 
     .loading {
+        width: 100px;
+        position: absolute;
+        top: 10vh;
+        left: 50vh;
+        margin-left: -50px;
         animation: loading 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+
+        &.icon-svg {
+            width: 100px;
+            height: 100px;
+        }
 
         &.hidden {
             display: hidden;
