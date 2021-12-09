@@ -33,6 +33,11 @@ body {
     background-position: 50% 50%;
     margin: 0;
     padding: 0;
+    -webkit-transition: All 1.2s ease;
+    -moz-transition: All 1.2s ease;
+    -o-transition: All 1.2s ease;
+    -ms-transition: All 1.2s ease;
+    transition: All 1.2s ease;
     background-image: url(https://zaaap-1254235226.cos.ap-guangzhou.myqcloud.com/short_pic/2020/11/19/10711727614926603-1605769622454.jpg?size=5120x2880&imageMogr2/format/jpeg/quality/60);
 }
 
@@ -258,6 +263,7 @@ a {
 
     img.loading::before {
         content: ' ';
+        display: block;
     }
 
 }
