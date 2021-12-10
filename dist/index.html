@@ -102,7 +102,7 @@
     {{/if}}
   </script>
   <script id="themes" type="text/x-jsrender">
-    <img class="rounded" loading="lazy" src="https://lipsum.app/id/{{:id}}/200x150" rel="external noreferrer nofollow noopener" referrerpolicy="no-referrer"/>
+    <img class="rounded" loading="lazy" src="https://lipsum.app/id/{{:id}}/200x150" alt="loading" rel="external noreferrer nofollow noopener" referrerpolicy="no-referrer"/>
   </script>
   <script>
     $('#pane').html($.templates("#apps").render([{
@@ -136,10 +136,16 @@
       subpath: "#",
       icon: "ic-theme"
     }]));
-    var ids = Array.from(Array(840).keys()).map(id => ({
-      id
-    }));
-    $('#theme-container').html($.templates("#themes").render(ids));
+
+    $("#theme-selector").on("scroll", function () {
+      if (this.scrollTop + 100 > this.scrollHeight) {
+        var children = $('#theme-container').children().size();
+        var ids = Array.from(Array(20).keys()).map(id => ({
+          id: id + children + 1
+        }));
+        $('#theme-container').add($.templates("#themes").render(ids));
+      }
+    });
     $(".box-wrapper").click(function () {
       var active = $(this).attr("active") === 'true';
       $(this).toggleClass("active", !active).toggleClass("normal", active);
