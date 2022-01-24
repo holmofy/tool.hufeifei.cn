@@ -30,6 +30,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-H58NSPXYPF"></script>
   <script async src="//at.alicdn.com/t/font_2974747_fji4vqctvqm.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -102,7 +103,7 @@
     {{/if}}
   </script>
   <script id="themes" type="text/x-jsrender">
-    <img class="rounded" loading="lazy" src="https://lipsum.app/id/{{:id}}/200x150" alt="loading" rel="external noreferrer nofollow noopener" referrerpolicy="no-referrer"/>
+    <img class="rounded lozad" data-src="https://lipsum.app/id/{{:id}}/200x150" alt="loading" rel="external noreferrer nofollow noopener" referrerpolicy="no-referrer"/>
   </script>
   <script>
     $('#pane').html($.templates("#apps").render([{
@@ -141,15 +142,11 @@
       icon: "ic-theme"
     }]));
 
-    $("#theme-selector").on("scroll", function () {
-      if (this.scrollTop + 100 > this.scrollHeight) {
-        var children = $('#theme-container').children().size();
-        var ids = Array.from(Array(20).keys()).map(id => ({
-          id: id + children + 1
-        }));
-        $('#theme-container').add($.templates("#themes").render(ids));
-      }
-    });
+    var ids = Array.from(Array(2*3*5*7).keys()).map(id => ({
+      id: id + 1
+    }));
+    $('#theme-container').add($.templates("#themes").render(ids));
+  
     $(".box-wrapper").click(function () {
       var active = $(this).attr("active") === 'true';
       $(this).toggleClass("active", !active).toggleClass("normal", active);
